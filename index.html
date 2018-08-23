@@ -12,7 +12,7 @@
     <!-- Your CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-    <title>Dr. Who RPG</title>
+    <title>Dr. Who RPG Game</title>
 </head>
 
 <!-- <header>
@@ -26,7 +26,7 @@
 </header> -->
 
 <body>
-    <h1></h1>
+    <!-- <h1>Dr. Who RPG Game</h1> -->
 
     <div class="container">
         <div class="row">
@@ -38,34 +38,71 @@
                     <!-- <button type="button" class="btn btn-success">Start</button> -->
 
                     <p>INSTRUCTION: Press any key to get started!</p>
-                    <p class="banner"></p>
-                    <p class="score"></p>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="banner"></p>
+                <p class="score"></p>
 
-                    <h2 class="question"> </h2>
+                <h2 class="question"> </h2>
 
-                    <p class="correctAnswer"></p>
-                    <p class="trialCount"></p>
-                    <p class="lettersTried"></p>
-                    <p class="lettersAll"></p>
+                <p class="correctAnswer"></p>
+                <p class="trialCount"></p>
+                <p class="lettersTried"></p>
+                <p class="lettersAll"></p>
 
-                    <img src="assets/images/doctor_who.png" class="img-player img-fluid" alt="Dr Who">
-
-
-                    <img src="assets/images/dalek.png" class="img-player img-fluid" alt="Dalek">
-                    <img src="assets/images/cyberman.png" class="img-player img-fluid" alt="Cyberman">
-                    <img src="assets/images/the_master.png" class="img-player img-fluid" alt="The Master">
-                    <img src="assets/images/rose_tyler.png" class="img-player img-fluid" alt="Rose Tyler">
-                    <img src="assets/images/captain_jack.png" class="img-player img-fluid" alt="Captain Jack">
-                    <div id="display"></div>
-                    <div id="buttons"></div>
-                    <button id="clear">clear</button>
-
-
-
+                <img src="assets/images/doctor_who.png" class="img-player img-fluid" alt="Dr Who">
+                <img src="assets/images/dalek.png" class="img-player img-fluid" alt="Dalek">
+                <img src="assets/images/cyberman.png" class="img-player img-fluid" alt="Cyberman">
+                <img src="assets/images/the_master.png" class="img-player img-fluid" alt="The Master">
+                <img src="assets/images/rose_tyler.png" class="img-player img-fluid" alt="Rose Tyler">
+                <img src="assets/images/captain_jack.png" class="img-player img-fluid" alt="Captain Jack">
+                <div id="display"></div>
+                <div id="buttons"></div>
+                <!-- <button id="clear">clear</button> -->
 
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card">
+                    <h3 class="card-header">The Players</h3>
+
+                    <div class="card-body">
+
+                        <button id="button-1" class="btn btn-primary number" value="doctor"><span>Doctor</span></button>
+                        <button id="button-2" class="btn btn-primary number" value="dalek"><span>Dalek</span></button>
+                        <button id="button-3" class="btn btn-primary number" value="cyberman"><span>Cyberman</span></button>
+                        <button id="button-4" class="btn btn-primary number" value="master"><span>The Master</span></button>
+                        <button id="button-5" class="btn btn-primary number" value="roseTyler"><span>Rose Tyler</span></button>
+                        <button id="button-6" class="btn btn-primary number" value="captainJack"><span>Captain Jack</span></button>
+                        <br><br>
+                        <button id="button-attack" class="btn btn-danger operator" value="attack"><span>Attack</span></button>
+                        <button id="button-clear" class="btn btn-dark clear" value="clear"><span>clear</span></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Result Panel -->
+            <div class="col-md-9">
+                <div class="card">
+                    <h3 class="card-header">Result</h3>
+                    <div class="card-body">
+                        <h1 id="first-number"></h1>
+                        <h1 id="operator"></h1>
+                        <h1 id="second-number"></h1>
+                        <hr>
+                        <h1 id="result"></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 
 
     <!-- Optional JavaScript -->
@@ -76,7 +113,6 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
 </body>
 

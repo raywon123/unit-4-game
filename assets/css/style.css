@@ -46,10 +46,8 @@ h1, h2, h3 {
 
 .container {
   width: 90%;
-  margin-right: 10px;
-
- 
- 
+  margin-right: 10px; 
+  opacity: 0.8;
 }
 
 /* .logobox {
@@ -65,10 +63,9 @@ h1, h2, h3 {
   height: 20%;
   margin-top: 10px;
   opacity: 0.8;
-
 }
 
-#display {
+/* #display {
   margin-top: 78px;
   height: 500px;
   width: 220px;
@@ -86,12 +83,12 @@ h1, h2, h3 {
   border-style: solid;
   width: 100px;
 } 
-
+*/
 .img-player {
   float: left;
   width:  100px;
   height: auto;
   margin: 10px;
 
-}
+} 
 

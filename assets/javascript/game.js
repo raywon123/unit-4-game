@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 // This function remove element from an array
 function removeElement(array, element) {
     let index = array.indexOf(element);
@@ -63,30 +65,28 @@ function battle(winner, loser, multiple) {
 // main program
 
 
-$(document).ready(function () {
+    // var letters = ["A", "B", "C", "D"];
 
-    var letters = ["A", "B", "C", "D"];
+    // for (var i = 0; i < letters.length; i++) {
 
-    for (var i = 0; i < letters.length; i++) {
+    //     var letterBtn = $("<button>");
+    //     letterBtn.addClass("letter-button letter letter-button-color");
+    //     letterBtn.attr("data-letter", letters[i]);
+    //     letterBtn.text(letters[i]);
+    //     $("#buttons").append(letterBtn);
+    // }
 
-        var letterBtn = $("<button>");
-        letterBtn.addClass("letter-button letter letter-button-color");
-        letterBtn.attr("data-letter", letters[i]);
-        letterBtn.text(letters[i]);
-        $("#buttons").append(letterBtn);
-    }
+    // $(".letter-button").on("click", function () {
+    //     var fridgeMagnet = $("<div>");
+    //     fridgeMagnet.addClass("letter fridge-color");
+    //     fridgeMagnet.text($(this).attr("data-letter"));
+    //     $("#display").append(fridgeMagnet);
 
-    $(".letter-button").on("click", function () {
-        var fridgeMagnet = $("<div>");
-        fridgeMagnet.addClass("letter fridge-color");
-        fridgeMagnet.text($(this).attr("data-letter"));
-        $("#display").append(fridgeMagnet);
+    // });
 
-    });
-
-    $("#clear").on("click", function () {
-        $("#display").empty();
-    });
+    // $("#clear").on("click", function () {
+    //     $("#display").empty();
+    // });
 
    //---------------------------------------------------------------------
    // Person object properties:
@@ -103,19 +103,37 @@ $(document).ready(function () {
     let roseTyler = new Person('Rose Tyler', 500, 100, 50, true);
     let captainJack = new Person('Captain Jack', 700, 200, 100, true);
 
-    let players = [doctor, dalek, cyberman, master];
+    let players = [doctor, dalek, cyberman, master, roseTyler];
 
-    let attacker = doctor;
+    let firstNumber = '';
+
+    $(".number").on("click", function () {
+        console.log($(this).val());
+        firstNumber += $(this).val();
+        $("#first-number").text("Attacker is " + firstNumber);
+        console.log(firstNumber);
+    });
+
+    // test cases:
+     let attacker = doctor;
+    // let attacker = roseTyler ;
+     // -------------------------
+
     removeElement(players, attacker);
 
-    // will implement by random generator
+    // win or lose will be implemented by a random generator
     let wins = [1, 0, 1, 1, 1, 1];
+
+    // ---
     let win_count = 0;
     
     for (let i = 0; i < players.length; i++) {
         let defender = players[i];
         console.log("before attacker=" + attacker.name + " " + attacker.health);
         console.log("before defender=" + defender.name + " " + defender.health);
+        if (attacker.health < 1 ) {
+            break;
+        }
         for (let j = 0; j < wins.length; j++) {
             if (attacker.health < 1 || defender.health < 1) {
                 break;
