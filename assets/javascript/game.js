@@ -10,8 +10,9 @@ $(document).ready(function () {
 
 
     // Object for player
-    function Person(name, health, attackPoint, counter_attackPoint, isFriendly) {
+    function Person(name, shortname, health, attackPoint, counter_attackPoint, isFriendly) {
         this.name = name;
+        this.shortname = shortname;
         this.health = health;
         this.attackPoint = attackPoint;
         this.counter_attackPoint = counter_attackPoint;
@@ -75,14 +76,14 @@ $(document).ready(function () {
     //   4. counter_attackPoint = when defending, points that will reduce the opponent's health
     //   5. isFriendly - true for the good guys, false for the bad guys.
 
-    let doctor = new Person('The Doctor', 1000, 250, 150, true);
-    let dalek = new Person('Dalek', 200, 200, 50, false);
-    let cyberman = new Person('Cyberman', 500, 100, 100, false);
-    let master = new Person('The Master', 1200, 300, 150, false);
-    let roseTyler = new Person('Rose Tyler', 500, 100, 50, true);
-    let captainJack = new Person('Captain Jack', 700, 200, 100, true);
+    let doctor = new Person('The Doctor', 'doctor', 1000, 250, 150, true);
+    let dalek = new Person('Dalek', 'dalek', 200, 200, 50, false);
+    let cyberman = new Person('Cyberman', 'cyberman', 500, 100, 100, false);
+    let master = new Person('The Master', 'master', 1200, 300, 150, false);
+    let roseTyler = new Person('Rose Tyler', 'roseTyler', 500, 100, 50, true);
+    let captainJack = new Person('Captain Jack', 'captainJack', 700, 200, 100, true);
 
-    let players = [doctor, dalek, cyberman, master, roseTyler];
+    let players = [doctor, dalek, cyberman, master, roseTyler, captainJack];
 
 
     let name = '';
@@ -93,6 +94,7 @@ $(document).ready(function () {
     let gameStarted = false;
     let battleEnded = false;
     let playernames = [];
+    let friendlyList = [];
 
     // win or lose will be implemented by a random generator
     // let wins = [1, 0, 1, 1, 1, 1];
@@ -136,6 +138,38 @@ $(document).ready(function () {
             attacker = choosePlayer;
             removeElement(players, attacker);
 
+            // remove friendly in players
+            for (let i = 0; i < players.length; i++) {
+            
+                if (attacker.isFriendly === players[i].isFriendly) {
+                    friendlyList.push(players[i].shortname);
+            
+                }
+            }
+          
+            for (let i = 0; i < friendlyList.length; i++) {
+                if (friendlyList[i] === 'roseTyler') {
+                    removeElement(players, roseTyler);
+                } 
+                if (friendlyList[i] === 'captainJack') {
+                    removeElement(players, captainJack);
+                } 
+                if (friendlyList[i] === 'doctor') {
+                    removeElement(players, doctor);
+                } 
+                if (friendlyList[i] === 'master') {
+                    removeElement(players, master);
+                } 
+                if (friendlyList[i] === 'dalek') {
+                    removeElement(players, dalek);
+                } 
+                if (friendlyList[i] === 'cyberman') {
+                    removeElement(players, cyberman);
+                } 
+            }
+
+            console.log(friendlyList);
+            console.log(players);
 
             for (let i = 0; i < players.length; i++) {
                 playernames.push(players[i].name);
@@ -153,7 +187,7 @@ $(document).ready(function () {
         // attacker = roseTyler ;
         // ------------------------
 
-
+        // choose defender
         if (players) {
             console.log(players);
             defender = choosePlayer;
@@ -182,8 +216,8 @@ $(document).ready(function () {
 
     });
 
+    // attack sequence
     $(".attack").on("click", function () {
-
 
         if (gameStarted && !battleEnded) {
             // for (let i = 0; i < players.length; i++) {
