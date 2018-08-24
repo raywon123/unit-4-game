@@ -35,13 +35,21 @@ $(document).ready(function () {
         loser.defending(winner.attackPoint, multiple);
     }
 
-    function generateRandomNumberArray(length, iteration) {
-        let randoms = [];
-        for (let i = 0; i < iteration; i++) {
-            randoms.push(Math.floor(Math.random() * length));
+    // function for printing out players
+    function displayPlayers(players) {
+        // $("#buttons").empty();
+        for (let i = 0; i < players.length; i++) {
+            let letterBtn = $("<button>");
+            letterBtn.addClass("btn btn-primary player btn2");
+            letterBtn.attr("data-letter", players[i].name);
+            letterBtn.attr("value", players[i].shortname);
+            letterBtn.text(players[i].name);
+            $("#buttons").append(letterBtn);
         }
-        return randoms;
     }
+    
+
+
     //--------------------------------------------------
 
 
@@ -69,6 +77,19 @@ $(document).ready(function () {
     // });
 
     //---------------------------------------------------------------------
+    // let letters = ["Doctor", "Dalek", "Cyberman", "The Master", "Rose Tyler", "Captain Jack"];
+    // let values = ["doctor", "dalek", "cyberman", "master", "roseTyler", "captainJack"]
+
+    // for (let i = 0; i < letters.length; i++) {
+    //     let letterBtn = $("<button>");
+    //     letterBtn.addClass("btn btn-primary player btn2");
+    //     letterBtn.attr("data-letter", letters[i]);
+    //     letterBtn.attr("value", values[i]);
+    //     letterBtn.text(letters[i]);
+    //     $("#buttons").append(letterBtn);
+    // }
+
+    //---------------------------------------------------------------------
     // Person object properties:
     //   1. name = name of the charater 
     //   2. health = character's health point
@@ -83,7 +104,7 @@ $(document).ready(function () {
     let roseTyler = new Person('Rose Tyler', 'roseTyler', 500, 100, 50, true);
     let captainJack = new Person('Captain Jack', 'captainJack', 700, 200, 100, true);
 
-    let players = [doctor, dalek, cyberman, master, roseTyler, captainJack];
+    let players = [doctor, roseTyler, captainJack, dalek, cyberman, master];
 
 
     let name = '';
@@ -107,6 +128,8 @@ $(document).ready(function () {
     let win_count = 0;
 
     // console.log("find it" + players.includes(doctor));
+
+    displayPlayers(players);
 
     $(".player").on("click", function () {
         console.log($(this).val());
@@ -138,6 +161,7 @@ $(document).ready(function () {
 
             attacker = choosePlayer;
             removeElement(players, attacker);
+           
 
             // remove friendly in players
             for (let i = 0; i < players.length; i++) {
@@ -168,7 +192,8 @@ $(document).ready(function () {
                     removeElement(players, cyberman);
                 } 
             }
-
+            
+          
             console.log(friendlyList);
             console.log(players);
 
@@ -179,7 +204,8 @@ $(document).ready(function () {
             // -- printout
             $(".first-number").text("You are " + attacker.name + ".    [health point = " + attacker.health + "]");
             console.log("attacker is " + attacker.name);
-            $(".instruction").text("INSTRUCTION: Choose Your Opponent");
+            $(".instruction").text("Choose Your Opponent: "  + playernames);
+            $(".instruction2").text("");
             $(".result").text("Opponents Left Are:     " + playernames);
         }
 
@@ -189,13 +215,15 @@ $(document).ready(function () {
         // ------------------------
 
         // choose defender
+        console.log("defenderchosen = " + isDefenderChosen)
+        console.log(choosePlayer);
         if (players && !isDefenderChosen) {
             console.log(players);
             defender = choosePlayer;
             console.log(defender);
         }
 
-        if (defender.name !== attacker.name) {
+        if (defender.name !== attacker.name && players.includes(defender)) {
 
             isGameStarted = true;
             removeElement(players, defender);
@@ -205,9 +233,12 @@ $(document).ready(function () {
             removeElement(playernames, defender.name);
             isBattleEnded = false;
             isDefenderChosen = true;
+          
             // wins = generateRandomNumberArray(2, 20);
 
             // -- printout
+            $(".instruction").text("Click Attack Button To Fight.");
+            $(".instruction2").text("");
             $(".second-number").text("Your Opponent is " + defender.name + ".    [health point = " + defender.health + "]");
             $(".result").text("Opponents Left Are:     " + playernames);
             console.log("defender is " + defender.name);
@@ -240,12 +271,17 @@ $(document).ready(function () {
             if (win) {
                 win_count++;
                 battle(attacker, defender, win_count);
+                $(".instruction").text("Win. Click Attack Button To Fight Again.");
                 console.log("inside attacker=" + attacker.name + " " + attacker.health);
                 console.log("inside defender=" + defender.name + " " + defender.health);
             }
             else {
                 battle(defender, attacker, 1);
+                $(".instruction").text("Lose. Click Attack Button To Fight Again.");
             }
+
+            //-- print out
+           
             $(".first-number").text("You are " + attacker.name + ".    [health point = " + attacker.health + "]");
             $(".second-number").text("Your Opponent is " + defender.name + ".    [health point = " + defender.health + "]");
             console.log("defender is " + defender.name);
@@ -256,6 +292,15 @@ $(document).ready(function () {
         if(isGameStarted && ( attacker.health < 1 || defender.health < 1)) {
             isBattleEnded = true;
             isDefenderChosen = false;
+            if (attacker.health < 1) {
+                $(".instruction").text("You Lose. " + attacker.name + " is dead.");
+                $(".instruction2").text("Click Refresh in Browser To Restart The Game.");
+            }
+            else {
+                $(".instruction").text("You Win. " + defender.name + " is dead.");
+                $(".instruction2").text("Choose Your Next Opponent: " + playernames);
+            }
+
         }
 
     });

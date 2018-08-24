@@ -6,9 +6,9 @@ body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 18px;
   line-height: 25px;
-  color: #ccc;
-  background-color: rgb(28, 3, 75);
-  background: url("../images/tardis6.jpg");
+  color: rgb(156, 21, 127);
+  background-color: black;
+  background-image: url("../images/tardis6.jpg");
   background-repeat: no-repeat;
   size: 960px;
 }
@@ -92,3 +92,23 @@ h1, h2, h3 {
 
 } 
 
+#display {
+  margin-top: 10px;
+  height: 200px;
+  width: 200px;
+  margin-left: 10px;
+}
+
+#buttons {
+  padding-top: 10px;
+}
+
+.btn2 {
+  margin: 2px;
+}
+
+.instruction, .instruction2 {
+  color: red;
+  font-weight: 700;
+  text-align: center;
+}

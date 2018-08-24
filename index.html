@@ -46,13 +46,13 @@
                 <p class="banner"></p>
 
                 <img src="assets/images/doctor_who.png" class="img-player img-fluid" alt="Dr Who">
+                <img src="assets/images/rose_tyler.png" class="img-player img-fluid" alt="Rose Tyler">
+                <img src="assets/images/captain_jack.png" class="img-player img-fluid" alt="Captain Jack">
                 <img src="assets/images/dalek.png" class="img-player img-fluid" alt="Dalek">
                 <img src="assets/images/cyberman.png" class="img-player img-fluid" alt="Cyberman">
                 <img src="assets/images/the_master.png" class="img-player img-fluid" alt="The Master">
-                <img src="assets/images/rose_tyler.png" class="img-player img-fluid" alt="Rose Tyler">
-                <img src="assets/images/captain_jack.png" class="img-player img-fluid" alt="Captain Jack">
                 <div id="display"></div>
-                <div id="buttons"></div>
+                <!-- <div id="buttons"></div> -->
                 <!-- <button id="clear">clear</button> -->
 
             </div>
@@ -63,14 +63,17 @@
                     <h3 class="card-header">The Players</h3>
 
                     <div class="card-body">
+                        <div id="buttons"></div>
 
-                        <button class="btn btn-primary player" value="doctor"><span>Doctor</span></button>
+                        <!-- <button class="btn btn-primary player" value="doctor"><span>Doctor</span></button>
                         <button class="btn btn-primary player" value="dalek"><span>Dalek</span></button>
                         <button class="btn btn-primary player" value="cyberman"><span>Cyberman</span></button>
                         <button class="btn btn-primary player" value="master"><span>The Master</span></button>
                         <button class="btn btn-primary player" value="roseTyler"><span>Rose Tyler</span></button>
-                        <button class="btn btn-primary player" value="captainJack"><span>Captain Jack</span></button>
+                        <button class="btn btn-primary player" value="captainJack"><span>Captain Jack</span></button> -->
+
                         <br><br>
+                        <!-- <button class="attack" value="attack"> <img src="assets/images/doctor_who.png" class="img-player img-fluid" alt="Dr Who"><span>Attack</span></button> -->
                         <button class="btn btn-danger attack" value="attack"><span>Attack</span></button>
                         <!-- <button class="btn btn-dark clear" value="reset"><span>reset</span></button> -->
 
@@ -83,13 +86,15 @@
             <div class="col-md-9">
                 <div class="card">
                     <p class="instruction card-header">INSTRUCTION: Choose Your Character To Start</p>
+                    <p class="instruction2 card-header"></p>
                     <h3>Result</h3>
                     <div class="card-body">
-                        <p class="result"></p>
+                   
                         <hr>
                         <p class="first-number"></p>
                         <p class="operator"></p>
                         <p class="second-number"></p>
+                        <p class="result"></p>
                         <hr>
 
                     </div>
