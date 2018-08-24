@@ -62,7 +62,7 @@ $(document).ready(function () {
     }
 
 
-    // main program
+    //--------------------------------------------------
 
 
     // var letters = ["A", "B", "C", "D"];
@@ -105,44 +105,9 @@ $(document).ready(function () {
 
     let players = [doctor, dalek, cyberman, master, roseTyler];
 
-    let firstNumber = '';
-  
-
-console.log("find it" + players.includes(doctor));
-
-    $(".number").on("click", function () {
-        console.log($(this).val());
-       
-            console.log("no");
-            firstNumber = $(this).val();
-            $("#first-number").text("Attacker is " + firstNumber);
-            console.log("attacker is " + firstNumber);
- 
-      
-            console.log(players);            
-           
-        
-        
-
-    });
-
+    let firstPlayer = '';
     let attacker_tmp = '';
-    
-    if (firstNumber === 'dalek') {
-        console.log("first = " + firstNumber);
-        attacker_tmp = dakek;
-        console.log("tmp inside =" + attacker_tmp); 
-     }
-    console.log("tmp=" + attacker_tmp); 
-    // test cases:
-    let attacker = doctor;
-    // attacker = roseTyler ;
-    // -------------------------
-
-
-
-
-    removeElement(players, attacker);
+    let attacker = '';
 
     // win or lose will be implemented by a random generator
     let wins = [1, 0, 1, 1, 1, 1];
@@ -150,28 +115,77 @@ console.log("find it" + players.includes(doctor));
     // ---
     let win_count = 0;
 
-    for (let i = 0; i < players.length; i++) {
-        let defender = players[i];
-        console.log("before attacker=" + attacker.name + " " + attacker.health);
-        console.log("before defender=" + defender.name + " " + defender.health);
-        if (attacker.health < 1) {
-            break;
+    // console.log("find it" + players.includes(doctor));
+
+    $(".number").on("click", function () {
+        console.log($(this).val());
+
+        if (!attacker_tmp) {
+            firstPlayer = $(this).val();
+ 
+            if (firstPlayer === 'doctor') {
+                attacker_tmp = doctor;
+            }
+            if (firstPlayer === 'dalek') {
+                attacker_tmp = dalek;
+            }
+            if (firstPlayer === 'cyberman') {
+                attacker_tmp = cyberman;
+            }
+            if (firstPlayer === 'roseTyler') {
+                attacker_tmp = roseTyler;
+            }
+            if (firstPlayer === 'master') {
+                attacker_tmp = master;
+            }
+            if (firstPlayer === 'captainJack') {
+                attacker_tmp = captainJack;
+            }
+
+            // console.log("tmp=" + attacker_tmp.name);
+            // console.log(attacker_tmp);
+
+            attacker = attacker_tmp;
+            removeElement(players, attacker);
+            
+            // -- printout
+            $("#first-number").text("You are " + attacker.name + ".    [health point = " + attacker.health + "]");
+            console.log("attacker is " + attacker.name);
         }
-        for (let j = 0; j < wins.length; j++) {
-            if (attacker.health < 1 || defender.health < 1) {
+        // test cases:
+        // let attacker = doctor;
+        // attacker = roseTyler ;
+        // ------------------------
+
+
+
+
+        for (let i = 0; i < players.length; i++) {
+            let defender = players[i];
+            console.log("before attacker=" + attacker.name + " " + attacker.health);
+            console.log("before defender=" + defender.name + " " + defender.health);
+            if (attacker.health < 1) {
                 break;
             }
-            if (wins[j]) {
-                win_count++;
-                battle(attacker, defender, win_count);
-                console.log("inside attacker=" + attacker.name + " " + attacker.health);
-                console.log("inside defender=" + defender.name + " " + defender.health);
+            for (let j = 0; j < wins.length; j++) {
+                if (attacker.health < 1 || defender.health < 1) {
+                    break;
+                }
+                if (wins[j]) {
+                    win_count++;
+                    battle(attacker, defender, win_count);
+                    console.log("inside attacker=" + attacker.name + " " + attacker.health);
+                    console.log("inside defender=" + defender.name + " " + defender.health);
+                }
+                else {
+                    battle(defender, attacker, 1);
+                }
+                $("#first-number").text("You are " + attacker.name + ".    [health point = " + attacker.health + "]");
+                console.log("final attacker=" + attacker.name + " " + attacker.health);
+                console.log("final defender=" + defender.name + " " + defender.health);
             }
-            else {
-                battle(defender, attacker, 1);
-            }
-            console.log("final attacker=" + attacker.name + " " + attacker.health);
-            console.log("final defender=" + defender.name + " " + defender.health);
         }
-    }
+    });
+
+
 });
