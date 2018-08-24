@@ -34,7 +34,13 @@ $(document).ready(function () {
         loser.defending(winner.attackPoint, multiple);
     }
 
-
+    function generateRandomNumberArray(length, iteration) {
+        let randoms = [];
+        for (let i = 0; i < iteration; i++) {
+            randoms.push(Math.floor(Math.random() * length));
+        }
+        return randoms;
+    }
     //--------------------------------------------------
 
 
@@ -85,10 +91,14 @@ $(document).ready(function () {
     let attacker = '';
     let defender = '';
     let gameStarted = false;
+    let battleEnded = false;
     let playernames = [];
 
     // win or lose will be implemented by a random generator
-    let wins = [1, 0, 1, 1, 1, 1];
+    // let wins = [1, 0, 1, 1, 1, 1];
+    // let win = Math.floor(Math.random() * 2);
+    // let wins = generateRandomNumberArray(2, 10);
+    // let wins=[];
 
     // ---
     let win_count = 0;
@@ -126,16 +136,16 @@ $(document).ready(function () {
             attacker = choosePlayer;
             removeElement(players, attacker);
 
-    
+
             for (let i = 0; i < players.length; i++) {
                 playernames.push(players[i].name);
             }
 
             // -- printout
-            $("#first-number").text("You are " + attacker.name + ".    [health point = " + attacker.health + "]");
+            $(".first-number").text("You are " + attacker.name + ".    [health point = " + attacker.health + "]");
             console.log("attacker is " + attacker.name);
             $(".instruction").text("INSTRUCTION: Choose Your Opponent");
-            $("#result").text("Opponents Left Are:     " + playernames);
+            $(".result").text("Opponents Left Are:     " + playernames);
         }
 
         // test cases:
@@ -158,15 +168,24 @@ $(document).ready(function () {
             console.log(players);
 
             removeElement(playernames, defender.name);
+            battleEnded = false;
+            // wins = generateRandomNumberArray(2, 20);
 
             // -- printout
-            $("#second-number").text("Your Opponent is " + defender.name + ".    [health point = " + defender.health + "]");
-            $("#result").text("Opponents Left Are:     " + playernames);
+            $(".second-number").text("Your Opponent is " + defender.name + ".    [health point = " + defender.health + "]");
+            $(".result").text("Opponents Left Are:     " + playernames);
             console.log("defender is " + defender.name);
             // $(".instruction").text("INSTRUCTION: Click the Attack Button");
         }
 
-        if (gameStarted) {
+
+
+    });
+
+    $(".attack").on("click", function () {
+
+
+        if (gameStarted && !battleEnded) {
             // for (let i = 0; i < players.length; i++) {
             // let defender = players[i];
             console.log("before attacker=" + attacker.name + " " + attacker.health);
@@ -174,28 +193,34 @@ $(document).ready(function () {
             // if (attacker.health < 1) {
             //     break;
             // }
-            for (let j = 0; j < wins.length; j++) {
-                if (attacker.health < 1 || defender.health < 1) {
-                    break;
-                }
-                if (wins[j]) {
-                    win_count++;
-                    battle(attacker, defender, win_count);
-                    console.log("inside attacker=" + attacker.name + " " + attacker.health);
-                    console.log("inside defender=" + defender.name + " " + defender.health);
-                }
-                else {
-                    battle(defender, attacker, 1);
-                }
-                $("#first-number").text("You are " + attacker.name + ".    [health point = " + attacker.health + "]");
-                $("#second-number").text("Your Opponent is " + defender.name + ".    [health point = " + defender.health + "]");
-                console.log("defender is " + defender.name);
-                console.log("final attacker=" + attacker.name + " " + attacker.health);
-                console.log("final defender=" + defender.name + " " + defender.health);
-            }
-        }
-        //  }
-    });
+            // for (let j = 0; j < wins.length; j++) {
+            //     if (attacker.health < 1 || defender.health < 1) {
+            //         break;
+            //     }
 
+            let win = Math.floor(Math.random() * 2);
+            console.log("win=" + win);
+
+            if (win) {
+                win_count++;
+                battle(attacker, defender, win_count);
+                console.log("inside attacker=" + attacker.name + " " + attacker.health);
+                console.log("inside defender=" + defender.name + " " + defender.health);
+            }
+            else {
+                battle(defender, attacker, 1);
+            }
+            $(".first-number").text("You are " + attacker.name + ".    [health point = " + attacker.health + "]");
+            $(".second-number").text("Your Opponent is " + defender.name + ".    [health point = " + defender.health + "]");
+            console.log("defender is " + defender.name);
+            console.log("final attacker=" + attacker.name + " " + attacker.health);
+            console.log("final defender=" + defender.name + " " + defender.health);
+        }
+
+        if(gameStarted && ( attacker.health < 1 || defender.health < 1)) {
+            battleEnded = true;
+        }
+
+    });
 
 });
