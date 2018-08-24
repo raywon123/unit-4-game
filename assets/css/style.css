@@ -46,7 +46,7 @@ h1, h2, h3 {
 
 .container {
   width: 90%;
-  margin-right: 10px; 
+  margin-right: 10px;
   opacity: 0.8;
 }
 
@@ -84,13 +84,13 @@ h1, h2, h3 {
   width: 100px;
 } 
 */
+
 .img-player {
   float: left;
-  width:  100px;
+  width: 100px;
   height: auto;
   margin: 10px;
-
-} 
+}
 
 #display {
   margin-top: 10px;
@@ -107,7 +107,7 @@ h1, h2, h3 {
   margin: 2px;
 }
 
-.instruction, .instruction2 {
+.instruction, .instruction2, .instruction3 {
   color: red;
   font-weight: 700;
   text-align: center;
