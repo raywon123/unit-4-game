@@ -88,14 +88,15 @@ $(document).ready(function () {
 
     let name = '';
     let choosePlayer = '';
-
+    let isDefenderChosen = false;
+    
     let attacker = '';
     let defender = '';
-    let gameStarted = false;
-    let battleEnded = false;
+    let isGameStarted = false;
+    let isBattleEnded = false;
     let playernames = [];
     let friendlyList = [];
-
+    
     // win or lose will be implemented by a random generator
     // let wins = [1, 0, 1, 1, 1, 1];
     // let win = Math.floor(Math.random() * 2);
@@ -107,7 +108,7 @@ $(document).ready(function () {
 
     // console.log("find it" + players.includes(doctor));
 
-    $(".number").on("click", function () {
+    $(".player").on("click", function () {
         console.log($(this).val());
 
         name = $(this).val();
@@ -188,7 +189,7 @@ $(document).ready(function () {
         // ------------------------
 
         // choose defender
-        if (players) {
+        if (players && !isDefenderChosen) {
             console.log(players);
             defender = choosePlayer;
             console.log(defender);
@@ -196,13 +197,14 @@ $(document).ready(function () {
 
         if (defender.name !== attacker.name) {
 
-            gameStarted = true;
+            isGameStarted = true;
             removeElement(players, defender);
 
             console.log(players);
 
             removeElement(playernames, defender.name);
-            battleEnded = false;
+            isBattleEnded = false;
+            isDefenderChosen = true;
             // wins = generateRandomNumberArray(2, 20);
 
             // -- printout
@@ -219,7 +221,7 @@ $(document).ready(function () {
     // attack sequence
     $(".attack").on("click", function () {
 
-        if (gameStarted && !battleEnded) {
+        if (isGameStarted && !isBattleEnded) {
             // for (let i = 0; i < players.length; i++) {
             // let defender = players[i];
             console.log("before attacker=" + attacker.name + " " + attacker.health);
@@ -251,8 +253,9 @@ $(document).ready(function () {
             console.log("final defender=" + defender.name + " " + defender.health);
         }
 
-        if(gameStarted && ( attacker.health < 1 || defender.health < 1)) {
-            battleEnded = true;
+        if(isGameStarted && ( attacker.health < 1 || defender.health < 1)) {
+            isBattleEnded = true;
+            isDefenderChosen = false;
         }
 
     });
