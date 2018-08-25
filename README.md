@@ -32,7 +32,11 @@ Below are the items need to work on:
     
     hpmaster.text("The Master" + master.health);
 
-* "Once the player selects an opponent, that enemy is moved to a defender area." I was making the picture bigger when the character is chosen. To move the characters, first I will create the box, then I would use the similar idea to the jQuery visibility: variable.animate({ left: "-=200px" }, "normal");
+* "Once the player selects an opponent, that enemy is moved to a defender area." I was making the picture bigger when the character is chosen. To move the characters, first I will create the box, then I would use the similar idea to the jQuery visibility: 
+
+   code sample:
+   
+    btndoctor.animate({ left: "-=200px" }, "normal");
 
 * Need Reset button.
 
