@@ -20,10 +20,10 @@ This project is done with a time constraint so not all the desired features are 
 
 Below are the items need to work on:
 
-* 1. Bind the health points to the character pictures. This can be done by creating tag using jQuery. 
+* Bind the health points to the character pictures. This can be done by creating tag using jQuery. 
 
-* 2. "Once the player selects an opponent, that enemy is moved to a defender area." I was making the picture bigger when the character is chosen. To move the characters, first I will create the box, then I would use the similar idea to the jQuery visibility: variable.animate({ left: "-=200px" }, "normal");
+* "Once the player selects an opponent, that enemy is moved to a defender area." I was making the picture bigger when the character is chosen. To move the characters, first I will create the box, then I would use the similar idea to the jQuery visibility: variable.animate({ left: "-=200px" }, "normal");
 
-* 3. Need Reset button.
+* Need Reset button.
 
-* 4. Need to work on initiation function.
+* Need to work on initiation function.
