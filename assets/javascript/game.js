@@ -248,9 +248,16 @@ $(document).ready(function () {
             if (win) {
                 win_count++;
                 battle(attacker, defender, win_count);
+                if (defender.health > 0) {
                 $(".instruction").text("Win This Round. Click Attack Button To Fight Again.");
                 console.log("inside attacker=" + attacker.name + " " + attacker.health);
                 console.log("inside defender=" + defender.name + " " + defender.health);
+                }
+                else {
+                    $(".instruction").text("You Win. " + defender.name + " is dead.");
+                    $(".instruction2").text("Choose Your Next Opponent: ");
+                    $(".instruction3").text(playernames);
+                }
             }
             else {
                 battle(defender, attacker, 1);
