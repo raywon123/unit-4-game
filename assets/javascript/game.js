@@ -149,6 +149,23 @@ $(document).ready(function () {
     let btncyberman = $(".btn-cyberman");
     let btnmaster = $(".btn-master");
 
+    // -- showing attaching health point to botton.
+    let hpdoctor = $(".btn-doctor .caption");
+    let hproseTyler = $(".btn-roseTyler .caption");
+    let hpcaptainJack = $(".btn-captainJack .caption");
+    let hpdalek = $(".btn-dalek .caption");
+    let hpcyberman = $(".btn-cyberman .caption");
+    let hpmaster = $(".btn-master .caption");
+    
+    hpdoctor.append(" " + doctor.health);
+    hproseTyler.append(" " + roseTyler.health);
+    hpcaptainJack.append(" " + captainJack.health);
+    hpdalek.append(" " + dalek.health);
+    hpcyberman.append(" " + cyberman.health);
+    hpmaster.append(" " + master.health);
+    
+   // hpmaster.text("The Master" + master.health);
+
     // win or lose will be implemented by a random generator
     // let wins = [1, 0, 1, 1, 1, 1];
     // let win = Math.floor(Math.random() * 2);
