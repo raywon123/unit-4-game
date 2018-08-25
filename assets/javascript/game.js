@@ -287,6 +287,7 @@ $(document).ready(function () {
 
             // -- printout
             displayBorder(attacker.shortname);
+            displayHealthPoint(attacker.shortname);
             $(".first-number").text("You are " + attacker.name + ".    (health point = " + attacker.health + ")");
             console.log("attacker is " + attacker.name);
             $(".instruction").text("Choose Your Opponent: ");
@@ -327,6 +328,7 @@ $(document).ready(function () {
 
             // -- printout
             displayBorder(defender.shortname);
+            displayHealthPoint(defender.shortname);
             $(".instruction").text("Click Attacking Button To Fight.");
             $(".instruction2").text("");
             $(".second-number").text("Your Opponent:  " + defender.name + ". (health point = " + defender.health + ")");
@@ -362,22 +364,29 @@ $(document).ready(function () {
                 win_count++;
                 battle(attacker, defender, win_count);
                 if (defender.health > 0) {
+                    displayHealthPoint(attacker.shortname);
+                    displayHealthPoint(defender.shortname);
                     $(".instruction").text("Win This Round. Click Attacking Button To Fight Again.");
                     console.log("inside attacker=" + attacker.name + " " + attacker.health);
                     console.log("inside defender=" + defender.name + " " + defender.health);
                 }
                 else {
+                    displayHealthPoint(attacker.shortname);
+                    displayHealthPoint(defender.shortname);
                     $(".instruction").text("You Win. " + defender.name + " is dead.");
                     $(".instruction2").text("Choose Your Next Opponent: " + playernames);
                 }
             }
             else {
                 battle(defender, attacker, 1);
+                displayHealthPoint(attacker.shortname);
+                displayHealthPoint(defender.shortname);
                 $(".instruction").text("Lose This Round. Click Attacking Button To Fight Again.");
             }
 
             //-- print out
-
+            displayHealthPoint(attacker.shortname);
+            displayHealthPoint(defender.shortname);
             $(".first-number").text("You are " + attacker.name + ". (health point = " + attacker.health + ")");
             $(".second-number").text("Your Opponent: " + defender.name + ". (health point = " + defender.health + ")");
             console.log("defender is " + defender.name);
