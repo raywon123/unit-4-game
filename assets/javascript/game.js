@@ -243,7 +243,7 @@ $(document).ready(function () {
 
             // -- printout
             displayBorder(attacker.shortname);
-            $(".first-number").text("You are " + attacker.name + ".    [health point = " + attacker.health + "]");
+            $(".first-number").text("You are " + attacker.name + ".    (health point = " + attacker.health + ")");
             console.log("attacker is " + attacker.name);
             $(".instruction").text("Choose Your Opponent: ");
             $(".instruction2").text(playernames);
@@ -285,7 +285,7 @@ $(document).ready(function () {
             displayBorder(defender.shortname);
             $(".instruction").text("Click Attacking Button To Fight.");
             $(".instruction2").text("");
-            $(".second-number").text("Your Opponent:  " + defender.name + ".    [health point = " + defender.health + "]");
+            $(".second-number").text("Your Opponent:  " + defender.name + ". (health point = " + defender.health + ")");
             $(".result").text("Opponents Remaining:     " + playernames);
             console.log("defender is " + defender.name);
             // $(".instruction").text("INSTRUCTION: Click the Attacking Button");
@@ -334,8 +334,8 @@ $(document).ready(function () {
 
             //-- print out
 
-            $(".first-number").text("You are " + attacker.name + ".    [health point = " + attacker.health + "]");
-            $(".second-number").text("Your Opponent: " + defender.name + ".    [health point = " + defender.health + "]");
+            $(".first-number").text("You are " + attacker.name + ". (health point = " + attacker.health + ")");
+            $(".second-number").text("Your Opponent: " + defender.name + ". (health point = " + defender.health + ")");
             console.log("defender is " + defender.name);
             console.log("final attacker=" + attacker.name + " " + attacker.health);
             console.log("final defender=" + defender.name + " " + defender.health);
@@ -370,7 +370,7 @@ $(document).ready(function () {
             }
             if (playernames.length === 0 && defender.health < 1 && attacker.health > 1) {
 
-                $(".instruction").text("You Win. " + defender.name + " is dead.");
+                $(".instruction").text("You Win. " + defender.name + " is dead. All opponents are eliminated.");
                 $(".instruction2").text("Refresh The Browser To Restart The Game.");
                 displayInvisible(defender.shortname);
 
