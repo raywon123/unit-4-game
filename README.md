@@ -22,6 +22,11 @@ Below are the items need to work on:
 
 * Bind the health points to the character pictures. This can be done by creating tag using jQuery. I branched Feature 1 to work on this.
 
+  code sample:
+  
+    let hpdoctor = $(".btn-doctor .caption");
+    hpdoctor.append(" " + doctor.health);
+
 * "Once the player selects an opponent, that enemy is moved to a defender area." I was making the picture bigger when the character is chosen. To move the characters, first I will create the box, then I would use the similar idea to the jQuery visibility: variable.animate({ left: "-=200px" }, "normal");
 
 * Need Reset button.
