@@ -119,3 +119,7 @@ h1, h2, h3 {
   font-weight: 700;
   text-align: center;
 }
+
+.attack {
+  margin-bottom: 20px;
+}

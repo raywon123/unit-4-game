@@ -213,13 +213,13 @@ $(document).ready(function () {
             // wins = generateRandomNumberArray(2, 20);
 
             // -- printout
-            $(".instruction").text("Click Attack Button To Fight.");
+            $(".instruction").text("Click Attacking Button To Fight.");
             $(".instruction2").text("");
             $(".instruction3").text("");
-            $(".second-number").text("Your Opponent is " + defender.name + ".    [health point = " + defender.health + "]");
+            $(".second-number").text("Your Opponent:  " + defender.name + ".    [health point = " + defender.health + "]");
             $(".result").text("Opponents Remaining:     " + playernames);
             console.log("defender is " + defender.name);
-            // $(".instruction").text("INSTRUCTION: Click the Attack Button");
+            // $(".instruction").text("INSTRUCTION: Click the Attacking Button");
         }
 
 
@@ -249,7 +249,7 @@ $(document).ready(function () {
                 win_count++;
                 battle(attacker, defender, win_count);
                 if (defender.health > 0) {
-                $(".instruction").text("Win This Round. Click Attack Button To Fight Again.");
+                $(".instruction").text("Win This Round. Click Attacking Button To Fight Again.");
                 console.log("inside attacker=" + attacker.name + " " + attacker.health);
                 console.log("inside defender=" + defender.name + " " + defender.health);
                 }
@@ -261,7 +261,7 @@ $(document).ready(function () {
             }
             else {
                 battle(defender, attacker, 1);
-                $(".instruction").text("Lose This Round. Click Attack Button To Fight Again.");
+                $(".instruction").text("Lose This Round. Click Attacking Button To Fight Again.");
             }
 
             //-- print out
@@ -278,17 +278,17 @@ $(document).ready(function () {
             isDefenderChosen = false;
             console.log("final = " + playernames);
             if (attacker.health < 1) {
-                $(".instruction").text("You Lose. " + attacker.name + " is dead.");
+                $(".instruction").text("You Lose." + attacker.name + " is dead.");
                 $(".instruction2").text("Refresh in Browser To Restart The Game.");
                 $(".instruction3").text("");
             }
             else if (playernames.length > 1) {
-                $(".instruction").text("You Win. " + defender.name + " is dead.");
+                $(".instruction").text("You Win." + defender.name + " is dead.");
                 $(".instruction2").text("Choose Your Next Opponent: ");
                 $(".instruction3").text(playernames);
             }
             else if (playernames.length < 1) {
-                $(".instruction").text("You Win. " + defender.name + " is dead.");
+                $(".instruction").text("You Win." + defender.name + " is dead.");
                 $(".instruction2").text("Refresh in Browser To Restart The Game.");
                 $(".instruction3").text("");
             }
