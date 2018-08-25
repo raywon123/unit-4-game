@@ -86,26 +86,33 @@ h1, h2, h3 {
 */
 
 .img-player {
-  float: left;
+  float: none; 
   width: 100px;
   height: auto;
-  margin: 10px;
+  margin: 5px;
+
 }
 
-#display {
+.caption {
+  display: block;
+}
+
+.display {
   margin-top: 10px;
-  height: 200px;
+  height: 50px;
   width: 200px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 
 #buttons {
   padding-top: 10px;
 }
 
+
 .btn2 {
   margin: 2px;
 }
+
 
 .instruction, .instruction2, .instruction3 {
   color: red;

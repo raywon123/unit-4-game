@@ -104,7 +104,7 @@ $(document).ready(function () {
 
     // console.log("find it" + players.includes(doctor));
 
-    displayPlayers(players);
+    // displayPlayers(players);
 
     $(".player").on("click", function () {
         console.log($(this).val());
@@ -182,7 +182,7 @@ $(document).ready(function () {
             $(".instruction").text("Choose Your Opponent: ");
             $(".instruction2").text(playernames);
             $(".instruction3").text("");
-            $(".result").text("Opponents Left Are:     " + playernames);
+            $(".result").text("Opponents Remaining:     " + playernames);
         }
 
         // test cases:
@@ -217,7 +217,7 @@ $(document).ready(function () {
             $(".instruction2").text("");
             $(".instruction3").text("");
             $(".second-number").text("Your Opponent is " + defender.name + ".    [health point = " + defender.health + "]");
-            $(".result").text("Opponents Left Are:     " + playernames);
+            $(".result").text("Opponents Remaining:     " + playernames);
             console.log("defender is " + defender.name);
             // $(".instruction").text("INSTRUCTION: Click the Attack Button");
         }

@@ -33,25 +33,28 @@
             <div class="col-md-12">
                 <section class="main-content">
                     <img src="assets/images/dr_who_banner4.png" class="auth-image img-fluid" alt="DrWho">
-                    <p class="mission-text">
-                    </p>
+                    <!-- <p class="mission-text"></p> -->
                     <!-- <button type="button" class="btn btn-success">Start</button> -->
-
                     <!-- <p class="instruction" >INSTRUCTION: Choose Your Character To Start</p> -->
                 </section>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p class="banner"></p>
-
-                <img src="assets/images/doctor_who.png" class="img-player img-fluid" alt="Dr Who">
-                <img src="assets/images/rose_tyler.png" class="img-player img-fluid" alt="Rose Tyler">
-                <img src="assets/images/captain_jack.png" class="img-player img-fluid" alt="Captain Jack">
-                <img src="assets/images/dalek.png" class="img-player img-fluid" alt="Dalek">
-                <img src="assets/images/cyberman.png" class="img-player img-fluid" alt="Cyberman">
-                <img src="assets/images/the_master.png" class="img-player img-fluid" alt="The Master">
-                <div id="display"></div>
+                <!-- <p class="banner"></p> -->
+                <button class="btn btn-light player" value="doctor"> <img src="assets/images/doctor_who.png" class="img-player img-fluid"
+                        alt="Dr Who"><span class="caption">Doctor</span></button>
+                <button class="btn btn-light player" value="roseTyler"> <img src="assets/images/rose_tyler.png" class="img-player img-fluid"
+                        alt="Rose Tyler"><span class="caption">Rose Tyler</span></button>
+                <button class="btn btn-light player" value="captainJack"> <img src="assets/images/captain_jack.png" class="img-player img-fluid"
+                        alt="Captain Jack"><span class="caption">Captain Jack</span></button>
+                <button class="btn btn-secondary player" value="dalek"> <img src="assets/images/dalek.png" class="img-player img-fluid"
+                        alt="Dalek"><span class="caption">Dalek</span></button>
+                <button class="btn btn-secondary player" value="cyberman"> <img src="assets/images/cyberman.png" class="img-player img-fluid"
+                        alt="Cyberman"><span class="caption">Cyberman</span></button>
+                <button class="btn btn-secondary player" value="master"> <img src="assets/images/the_master.png" class="img-player img-fluid"
+                        alt="The Master"><span class="caption">The Master</span></button>
+                <div class="display"></div>
                 <!-- <div id="buttons"></div> -->
                 <!-- <button id="clear">clear</button> -->
 
@@ -60,8 +63,10 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="card">
-                    <h3 class="card-header">The Players</h3>
-
+                    <!-- <h3 class="card-header">The Players</h3> -->
+                    <p class="instruction card-header">INSTRUCTION: Choose Your Character To Start</p>
+                    <p class="instruction2 card-header"></p>
+                    <p class="instruction3 card-header"></p>
                     <div class="card-body">
                         <div id="buttons"></div>
 
@@ -72,7 +77,7 @@
                         <button class="btn btn-primary player" value="roseTyler"><span>Rose Tyler</span></button>
                         <button class="btn btn-primary player" value="captainJack"><span>Captain Jack</span></button> -->
 
-                        <br><br>
+                       
                         <!-- <button class="attack" value="attack"> <img src="assets/images/doctor_who.png" class="img-player img-fluid" alt="Dr Who"><span>Attack</span></button> -->
                         <button class="btn btn-danger attack" value="attack"><span>Attack</span></button>
                         <!-- <button class="btn btn-dark clear" value="reset"><span>reset</span></button> -->
@@ -85,9 +90,9 @@
             <!-- Result Panel -->
             <div class="col-md-9">
                 <div class="card">
-                    <p class="instruction card-header">INSTRUCTION: Choose Your Character To Start</p>
+                    <!-- <p class="instruction card-header">INSTRUCTION: Choose Your Character To Start</p>
                     <p class="instruction2 card-header"></p>
-                    <p class="instruction3 card-header"></p>
+                    <p class="instruction3 card-header"></p> -->
                     <h3>Result</h3>
                     <div class="card-body">
 
