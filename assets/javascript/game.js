@@ -48,6 +48,48 @@ $(document).ready(function () {
         }
     }
 
+    function displayInvisible(name) {
+        if (name === 'doctor') {
+            btndoctor.animate({ opacity: "0.3" });
+        }
+        if (name === 'dalek') {
+            btndalek.animate({ opacity: "0.3" });
+        }
+        if (name === 'cyberman') {
+            btncyberman.animate({ opacity: "0.3" });
+        }
+        if (name === 'roseTyler') {
+            btnroseTyler.animate({ opacity: "0.3" });
+        }
+        if (name === 'master') {
+            btnmaster.animate({ opacity: "0.3" });
+        }
+        if (name === 'captainJack') {
+            btncyberman.animate({ opacity: "0.3" });
+        }
+    }
+
+    function displayBorder(name) {
+
+        if (name === 'doctor') {
+            btndoctor.animate({ borderWidth: "10px" });
+        }
+        if (name === 'dalek') {
+            btndalek.animate({ borderWidth: "10px" });
+        }
+        if (name === 'cyberman') {
+            btncyberman.animate({ borderWidth: "10px" });
+        }
+        if (name === 'roseTyler') {
+            btnroseTyler.animate({ borderWidth: "10px" });
+        }
+        if (name === 'master') {
+            btnmaster.animate({ borderWidth: "10px" });
+        }
+        if (name === 'captainJack') {
+            btncaptainJack.animate({ borderWidth: "10px" });
+        }
+    }
 
 
     //---------------------------------------------------------------------
@@ -81,7 +123,6 @@ $(document).ready(function () {
 
     let players = [doctor, roseTyler, captainJack, dalek, cyberman, master];
 
-
     let name = '';
     let choosePlayer = '';
     let isDefenderChosen = false;
@@ -92,6 +133,20 @@ $(document).ready(function () {
     let isBattleEnded = false;
     let playernames = [];
     let friendlyList = [];
+
+    let picdoctor = $(".pic-doctor");
+    let picroseTyler = $(".pic-roseTyler");
+    let piccaptainJack = $(".pic-captainJack");
+    let picdalek = $(".pic-dalek");
+    let piccyberman = $(".pic-cyberman");
+    let picmaster = $(".pic-master");
+
+    let btndoctor = $(".btn-doctor");
+    let btnroseTyler = $(".btn-roseTyler");
+    let btncaptainJack = $(".btn-captainJack");
+    let btndalek = $(".btn-dalek");
+    let btncyberman = $(".btn-cyberman");
+    let btnmaster = $(".btn-master");
 
     // win or lose will be implemented by a random generator
     // let wins = [1, 0, 1, 1, 1, 1];
@@ -108,6 +163,7 @@ $(document).ready(function () {
 
     $(".player").on("click", function () {
         console.log($(this).val());
+
 
         name = $(this).val();
         if (name === 'doctor') {
@@ -150,21 +206,27 @@ $(document).ready(function () {
             for (let i = 0; i < friendlyList.length; i++) {
                 if (friendlyList[i] === 'roseTyler') {
                     removeElement(players, roseTyler);
+                    picroseTyler.animate({ opacity: "0.2" });
                 }
                 if (friendlyList[i] === 'captainJack') {
                     removeElement(players, captainJack);
+                    piccaptainJack.animate({ opacity: "0.2" });
                 }
                 if (friendlyList[i] === 'doctor') {
                     removeElement(players, doctor);
+                    picdoctor.animate({ opacity: "0.2" });
                 }
                 if (friendlyList[i] === 'master') {
                     removeElement(players, master);
+                    picmaster.animate({ opacity: "0.2" });
                 }
                 if (friendlyList[i] === 'dalek') {
                     removeElement(players, dalek);
+                    picdalek.animate({ opacity: "0.2" });
                 }
                 if (friendlyList[i] === 'cyberman') {
                     removeElement(players, cyberman);
+                    piccyberman.animate({ opacity: "0.2" });
                 }
             }
 
@@ -176,12 +238,14 @@ $(document).ready(function () {
                 playernames.push(players[i].name);
             }
 
+
+
             // -- printout
+            displayBorder(attacker.shortname);
             $(".first-number").text("You are " + attacker.name + ".    [health point = " + attacker.health + "]");
             console.log("attacker is " + attacker.name);
             $(".instruction").text("Choose Your Opponent: ");
             $(".instruction2").text(playernames);
-            $(".instruction3").text("");
             $(".result").text("Opponents Remaining:     " + playernames);
         }
 
@@ -217,9 +281,9 @@ $(document).ready(function () {
             // wins = generateRandomNumberArray(2, 20);
 
             // -- printout
+            displayBorder(defender.shortname);
             $(".instruction").text("Click Attacking Button To Fight.");
             $(".instruction2").text("");
-            $(".instruction3").text("");
             $(".second-number").text("Your Opponent:  " + defender.name + ".    [health point = " + defender.health + "]");
             $(".result").text("Opponents Remaining:     " + playernames);
             console.log("defender is " + defender.name);
@@ -253,14 +317,13 @@ $(document).ready(function () {
                 win_count++;
                 battle(attacker, defender, win_count);
                 if (defender.health > 0) {
-                $(".instruction").text("Win This Round. Click Attacking Button To Fight Again.");
-                console.log("inside attacker=" + attacker.name + " " + attacker.health);
-                console.log("inside defender=" + defender.name + " " + defender.health);
+                    $(".instruction").text("Win This Round. Click Attacking Button To Fight Again.");
+                    console.log("inside attacker=" + attacker.name + " " + attacker.health);
+                    console.log("inside defender=" + defender.name + " " + defender.health);
                 }
                 else {
                     $(".instruction").text("You Win. " + defender.name + " is dead.");
-                    $(".instruction2").text("Choose Your Next Opponent: ");
-                    $(".instruction3").text(playernames);
+                    $(".instruction2").text("Choose Your Next Opponent: " + playernames);
                 }
             }
             else {
@@ -271,7 +334,7 @@ $(document).ready(function () {
             //-- print out
 
             $(".first-number").text("You are " + attacker.name + ".    [health point = " + attacker.health + "]");
-            $(".second-number").text("Your Opponent is " + defender.name + ".    [health point = " + defender.health + "]");
+            $(".second-number").text("Your Opponent: " + defender.name + ".    [health point = " + defender.health + "]");
             console.log("defender is " + defender.name);
             console.log("final attacker=" + attacker.name + " " + attacker.health);
             console.log("final defender=" + defender.name + " " + defender.health);
@@ -281,23 +344,39 @@ $(document).ready(function () {
             isBattleEnded = true;
             isDefenderChosen = false;
             console.log("final = " + playernames);
-            if (attacker.health < 1) {
-                $(".instruction").text("You Lose." + attacker.name + " is dead.");
-                $(".instruction2").text("Refresh in Browser To Restart The Game.");
-                $(".instruction3").text("");
-            }
-            else if (playernames.length > 1) {
-                $(".instruction").text("You Win." + defender.name + " is dead.");
-                $(".instruction2").text("Choose Your Next Opponent: ");
-                $(".instruction3").text(playernames);
-            }
-            else if (playernames.length < 1) {
-                $(".instruction").text("You Win." + defender.name + " is dead.");
-                $(".instruction2").text("Refresh in Browser To Restart The Game.");
-                $(".instruction3").text("");
+
+            if (attacker.health < 1 && defender.health > 1) {
+
+                $(".instruction").text("You Lose. " + attacker.name + " is dead.");
+                $(".instruction2").text("Refresh The Browser To Restart The Game.");
+                displayInvisible(attacker.shortname);
             }
 
+            if (attacker.health < 1 && defender.health < 1) {
+
+                $(".instruction").text("You Lose. Both " + attacker.name + " and " +  defender.name + " are dead.");
+                $(".instruction2").text("Refresh The Browser To Restart The Game.");
+                displayInvisible(defender.shortname);
+                displayInvisible(attacker.shortname);
+            }
+
+            if (playernames.length > 0 && defender.health < 1 && attacker.health > 1) {
+
+                $(".instruction").text("You Win. " + defender.name + " is dead.");
+                $(".instruction2").text("Choose Your Next Opponent: " + playernames);
+                displayInvisible(defender.shortname);
+
+            }
+            if (playernames.length === 0 && defender.health < 1 && attacker.health > 1) {
+
+                $(".instruction").text("You Win. " + defender.name + " is dead.");
+                $(".instruction2").text("Refresh The Browser To Restart The Game.");
+                displayInvisible(defender.shortname);
+
+            }
         }
+
+
 
     });
 
