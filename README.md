@@ -26,4 +26,4 @@ Below are the items need to work on:
 
 * Need Reset button.
 
-* Need to work on initiation function.
+* Need to add the initialization function.
