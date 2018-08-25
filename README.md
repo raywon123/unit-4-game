@@ -27,3 +27,5 @@ Below are the items need to work on:
 * Need Reset button.
 
 * Need to add the initialization function.
+
+* To make it fun, I should allow the bad guys to fight each other. Currently I am only allow good guys fighting bad guys and not against its team members.
