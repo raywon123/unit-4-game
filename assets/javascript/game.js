@@ -92,7 +92,27 @@ $(document).ready(function () {
         }
     }
 
+    function displayHealthPoint(name) {
 
+        if (name === 'doctor') {
+            hpdoctor.text("Doctor " + doctor.health);
+        }
+        if (name === 'dalek') {
+            hpdalek.text("Dalek " + dalek.health);
+        }
+        if (name === 'cyberman') {
+            hpcyberman.text("Cyberman " + cyberman.health);
+        }
+        if (name === 'roseTyler') {
+            hproseTyler.text("Rose Tyler " + roseTyler.health);
+        }
+        if (name === 'master') {
+            hpmaster.text("The Master " + master.health);
+        }
+        if (name === 'captainJack') {
+            hpcaptainJack.text("Captain Jack " + captainJack.health);
+        }
+    }
     //---------------------------------------------------------------------
     // let letters = ["Doctor", "Dalek", "Cyberman", "The Master", "Rose Tyler", "Captain Jack"];
     // let values = ["doctor", "dalek", "cyberman", "master", "roseTyler", "captainJack"]
@@ -163,6 +183,13 @@ $(document).ready(function () {
     hpdalek.append(" " + dalek.health);
     hpcyberman.append(" " + cyberman.health);
     hpmaster.append(" " + master.health);
+
+    displayHealthPoint('doctor');
+    displayHealthPoint('roseTyler');
+    displayHealthPoint('captainJack');
+    displayHealthPoint('dalek');
+    displayHealthPoint('cyberman');
+    displayHealthPoint('master');
     
    // hpmaster.text("The Master" + master.health);
 
