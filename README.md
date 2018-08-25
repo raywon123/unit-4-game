@@ -43,3 +43,24 @@ Below are the items need to work on:
 * Need to add the initialization function.
 
 * To make it fun, I should allow the bad guys to fight each other. Currently I am only allow good guys fighting bad guys and not against its team members.
+
+* add music
+   
+   code sample:
+   
+   let  audioElement = document.createElement("audio");
+   
+   audioElement.setAttribute("src", "assets/music/doctor_who.mp3");
+
+   
+   $(".theme-button").on("click", function() {
+   
+       audioElement.play();
+       
+    });
+    
+    $(".pause-button").on("click", function() {
+    
+          audioElement.pause();
+          
+    });
