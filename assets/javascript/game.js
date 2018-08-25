@@ -193,6 +193,10 @@ $(document).ready(function () {
         // choose defender
         console.log("defenderchosen = " + isDefenderChosen)
         console.log(choosePlayer);
+        if (friendlyList.includes(name)) {
+            alert("You can't choose member of your own team to fight.");
+        }
+
         if (players && !isDefenderChosen) {
             console.log(players);
             defender = choosePlayer;
