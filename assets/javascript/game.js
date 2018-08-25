@@ -49,6 +49,7 @@ $(document).ready(function () {
     }
 
     function displayInvisible(name) {
+      
         if (name === 'doctor') {
             btndoctor.animate({ opacity: "0.3" });
         }
@@ -65,7 +66,7 @@ $(document).ready(function () {
             btnmaster.animate({ opacity: "0.3" });
         }
         if (name === 'captainJack') {
-            btncyberman.animate({ opacity: "0.3" });
+            btncaptainJack.animate({ opacity: "0.3" });
         }
     }
 
@@ -354,7 +355,7 @@ $(document).ready(function () {
 
             if (attacker.health < 1 && defender.health < 1) {
 
-                $(".instruction").text("You Lose. Both " + attacker.name + " and " +  defender.name + " are dead.");
+                $(".instruction").text("Both " + attacker.name + " and " +  defender.name + " are dead.");
                 $(".instruction2").text("Refresh The Browser To Restart The Game.");
                 displayInvisible(defender.shortname);
                 displayInvisible(attacker.shortname);
